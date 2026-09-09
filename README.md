@@ -36,7 +36,7 @@ JSON-file storage was chosen over a database engine to keep the project runnable
 ```bash
 git clone https://github.com/Dinith2024/Retail-Inventory-Sales.git
 cd Retail-Inventory-Sales
-dotnet run --project RetailInventorySales/RetailInventorySales.csproj
+dotnet run
 ```
 
 Or open `RetailInventorySales.sln` in Visual Studio and press **F5**.
