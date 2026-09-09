@@ -2,7 +2,7 @@
 
 A desktop application for managing a small retail store — products, sales, stock, and transaction history — built with .NET 8 and WPF.
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](dashboard-screenshot.png)
 
 ## Features
 
@@ -34,9 +34,9 @@ JSON-file storage was chosen over a database engine to keep the project runnable
 ### Run it
 
 ```bash
-git clone https://github.com/<your-username>/retail-inventory-sales.git
-cd retail-inventory-sales/RetailInventorySales
-dotnet run
+git clone https://github.com/Dinith2024/Retail-Inventory-Sales.git
+cd Retail-Inventory-Sales
+dotnet run --project RetailInventorySales/RetailInventorySales.csproj
 ```
 
 Or open `RetailInventorySales.sln` in Visual Studio and press **F5**.
