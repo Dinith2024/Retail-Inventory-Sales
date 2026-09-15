@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>RetailInventorySales</RootNamespace>
+    <AssemblyName>RetailInventorySales</AssemblyName>
+    <ApplicationIcon></ApplicationIcon>
+    <StartupObject>RetailInventorySales.App</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Sample data files are copied to the output folder on build so the
+         application starts with a small set of demo products -->
+    <None Update="Data\Store\*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
