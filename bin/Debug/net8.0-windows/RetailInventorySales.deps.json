@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "RetailInventorySales/1.0.0": {
+        "runtime": {
+          "RetailInventorySales.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RetailInventorySales/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
