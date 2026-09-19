@@ -1,0 +1,79 @@
+[
+  {
+    "Id": 7,
+    "ProductId": 7,
+    "ProductName": "sasa",
+    "SKU": "23",
+    "MovementType": 0,
+    "QuantityChange": 65,
+    "ResultingStock": 65,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T15:53:35.3476511+05:30"
+  },
+  {
+    "Id": 6,
+    "ProductId": 6,
+    "ProductName": "Toilet Tissue 4-Pack",
+    "SKU": "HSH-002",
+    "MovementType": 0,
+    "QuantityChange": 3,
+    "ResultingStock": 3,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T14:07:29.7894137+05:30"
+  },
+  {
+    "Id": 5,
+    "ProductId": 5,
+    "ProductName": "Dish Washing Liquid 500ml",
+    "SKU": "HSH-001",
+    "MovementType": 0,
+    "QuantityChange": 25,
+    "ResultingStock": 25,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T14:07:29.774587+05:30"
+  },
+  {
+    "Id": 4,
+    "ProductId": 4,
+    "ProductName": "Chocolate Bar 50g",
+    "SKU": "SNK-002",
+    "MovementType": 0,
+    "QuantityChange": 8,
+    "ResultingStock": 8,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T14:07:29.7599478+05:30"
+  },
+  {
+    "Id": 3,
+    "ProductId": 3,
+    "ProductName": "Potato Chips 100g",
+    "SKU": "SNK-001",
+    "MovementType": 0,
+    "QuantityChange": 60,
+    "ResultingStock": 60,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T14:07:29.7464864+05:30"
+  },
+  {
+    "Id": 2,
+    "ProductId": 2,
+    "ProductName": "Ceylon Tea 200g",
+    "SKU": "BEV-002",
+    "MovementType": 0,
+    "QuantityChange": 40,
+    "ResultingStock": 40,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T14:07:29.7311478+05:30"
+  },
+  {
+    "Id": 1,
+    "ProductId": 1,
+    "ProductName": "Mineral Water 500ml",
+    "SKU": "BEV-001",
+    "MovementType": 0,
+    "QuantityChange": 120,
+    "ResultingStock": 120,
+    "Notes": "Initial stock on product creation",
+    "Timestamp": "2026-09-09T14:07:29.7169355+05:30"
+  }
+]
