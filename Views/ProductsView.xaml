@@ -1,0 +1,102 @@
+<UserControl x:Class="RetailInventorySales.Views.ProductsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d">
+    <Grid Margin="24">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="360"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Product list -->
+        <Border Grid.Column="0" Style="{StaticResource CardStyle}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,12">
+                    <TextBlock Text="Products" Style="{StaticResource SectionHeader}" Margin="0,0,20,0"/>
+                    <TextBox x:Name="SearchBox" Width="240" VerticalAlignment="Center" TextChanged="SearchBox_TextChanged"
+                             ToolTip="Search by SKU, name or category"/>
+                    <CheckBox x:Name="ShowInactiveCheck" Content="Show inactive" Margin="16,0,0,0" VerticalAlignment="Center" Checked="ShowInactiveCheck_Changed" Unchecked="ShowInactiveCheck_Changed"/>
+                </StackPanel>
+
+                <DataGrid x:Name="ProductsGrid" SelectionChanged="ProductsGrid_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="SKU" Binding="{Binding SKU}" Width="90"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="120"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat='Rs. {0:N2}'}" Width="100"/>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding CostPrice, StringFormat='Rs. {0:N2}'}" Width="100"/>
+                        <DataGridTextColumn Header="Stock" Binding="{Binding QuantityInStock}" Width="70"/>
+                        <DataGridTextColumn Header="Reorder At" Binding="{Binding ReorderLevel}" Width="90"/>
+                        <DataGridTextColumn Header="Status" Binding="{Binding StatusText}" Width="80"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Border>
+
+        <!-- Add / edit form -->
+        <Border Grid.Column="2" Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <TextBlock x:Name="FormTitleText" Text="Add Product" Style="{StaticResource SectionHeader}"/>
+
+                <TextBlock Text="SKU" Style="{StaticResource LabelText}"/>
+                <TextBox x:Name="SkuBox" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Name" Style="{StaticResource LabelText}"/>
+                <TextBox x:Name="NameBox" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Category" Style="{StaticResource LabelText}"/>
+                <TextBox x:Name="CategoryBox" Margin="0,0,0,10"/>
+
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Selling Price (Rs.)" Style="{StaticResource LabelText}"/>
+                        <TextBox x:Name="PriceBox"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Cost Price (Rs.)" Style="{StaticResource LabelText}"/>
+                        <TextBox x:Name="CostPriceBox"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock x:Name="StockLabelText" Text="Initial Stock" Style="{StaticResource LabelText}"/>
+                        <TextBox x:Name="StockBox"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Reorder Level" Style="{StaticResource LabelText}"/>
+                        <TextBox x:Name="ReorderBox"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock x:Name="StockNoteText" Text="To change stock on an existing product, use the Stock Management tab so the change is recorded."
+                           TextWrapping="Wrap" FontStyle="Italic" Foreground="{StaticResource MutedTextBrush}" FontSize="11" Margin="0,0,0,10" Visibility="Collapsed"/>
+
+                <TextBlock x:Name="ValidationText" Foreground="{StaticResource DangerBrush}" TextWrapping="Wrap" Margin="0,0,0,10" Visibility="Collapsed"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="SaveButton" Content="Add Product" Style="{StaticResource PrimaryButton}" Click="SaveButton_Click" Margin="0,0,8,0"/>
+                    <Button x:Name="CancelButton" Content="Cancel" Style="{StaticResource SecondaryButton}" Click="CancelButton_Click" Visibility="Collapsed"/>
+                </StackPanel>
+
+                <Separator Margin="0,16,0,16"/>
+
+                <Button x:Name="DeactivateButton" Content="Deactivate Selected Product" Style="{StaticResource DangerButton}" Click="DeactivateButton_Click" IsEnabled="False"/>
+                <TextBlock Text="Deactivated products are hidden from the Sales screen but kept so past transactions still display correctly."
+                           TextWrapping="Wrap" FontSize="11" Foreground="{StaticResource MutedTextBrush}" Margin="0,6,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

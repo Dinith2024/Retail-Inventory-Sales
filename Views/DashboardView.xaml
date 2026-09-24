@@ -1,0 +1,99 @@
+<UserControl x:Class="RetailInventorySales.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,12">
+                <Button Content="Refresh" Style="{StaticResource SecondaryButton}" Click="RefreshButton_Click"/>
+            </StackPanel>
+
+            <!-- Summary cards -->
+            <UniformGrid Columns="5" Rows="1">
+                <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="ACTIVE PRODUCTS" Style="{StaticResource LabelText}"/>
+                        <TextBlock x:Name="ActiveProductsText" Text="0" FontSize="26" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="UNITS IN STOCK" Style="{StaticResource LabelText}"/>
+                        <TextBlock x:Name="UnitsInStockText" Text="0" FontSize="26" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="LOW STOCK ITEMS" Style="{StaticResource LabelText}"/>
+                        <TextBlock x:Name="LowStockText" Text="0" FontSize="26" FontWeight="Bold" Foreground="{StaticResource DangerBrush}"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="TODAY'S SALES" Style="{StaticResource LabelText}"/>
+                        <TextBlock x:Name="TodaysSalesText" Text="0" FontSize="26" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="TODAY'S REVENUE" Style="{StaticResource LabelText}"/>
+                        <TextBlock x:Name="TodaysRevenueText" Text="Rs. 0.00" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <Grid Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Low stock alerts -->
+                <Border Grid.Column="0" Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Low Stock Alerts" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock Text="Products at or below their reorder level. Restock these from the Stock Management tab."
+                                   TextWrapping="Wrap" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,10"/>
+                        <DataGrid x:Name="LowStockGrid" Height="320">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="SKU" Binding="{Binding SKU}" Width="90"/>
+                                <DataGridTextColumn Header="Product" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="In Stock" Binding="{Binding QuantityInStock}" Width="80"/>
+                                <DataGridTextColumn Header="Reorder At" Binding="{Binding ReorderLevel}" Width="90"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBlock x:Name="NoLowStockText" Text="All products are above their reorder level." Margin="0,12,0,0" Foreground="{StaticResource MutedTextBrush}" Visibility="Collapsed"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Top selling products -->
+                <Border Grid.Column="2" Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Top Selling Products" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock Text="Ranked by total units sold across all transaction history."
+                                   TextWrapping="Wrap" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,10"/>
+                        <DataGrid x:Name="TopSellingGrid" Height="320">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*"/>
+                                <DataGridTextColumn Header="Units Sold" Binding="{Binding UnitsSold}" Width="90"/>
+                                <DataGridTextColumn Header="Revenue" Binding="{Binding Revenue, StringFormat='Rs. {0:N2}'}" Width="120"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBlock x:Name="NoSalesText" Text="No sales recorded yet. Completed sales will appear here." Margin="0,12,0,0" Foreground="{StaticResource MutedTextBrush}" Visibility="Collapsed"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Style="{StaticResource CardStyle}" Margin="0,20,0,0">
+                <StackPanel>
+                    <TextBlock Text="All-Time Revenue" Style="{StaticResource LabelText}"/>
+                    <TextBlock x:Name="AllTimeRevenueText" Text="Rs. 0.00" FontSize="24" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"/>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

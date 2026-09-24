@@ -1,0 +1,76 @@
+<UserControl x:Class="RetailInventorySales.Views.HistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d">
+    <Grid Margin="24">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="420"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Transaction list -->
+        <Border Grid.Column="0" Style="{StaticResource CardStyle}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,12">
+                    <TextBlock Text="Transaction History" Style="{StaticResource SectionHeader}" Margin="0,0,20,0"/>
+                    <TextBox x:Name="SearchBox" Width="240" VerticalAlignment="Center" TextChanged="SearchBox_TextChanged"
+                             ToolTip="Search by transaction number or payment method"/>
+                </StackPanel>
+
+                <DataGrid x:Name="SalesGrid" SelectionChanged="SalesGrid_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Transaction #" Binding="{Binding TransactionNumber}" Width="130"/>
+                        <DataGridTextColumn Header="Date/Time" Binding="{Binding Timestamp, StringFormat='dd MMM yyyy HH:mm'}" Width="160"/>
+                        <DataGridTextColumn Header="Items" Binding="{Binding ItemCount}" Width="70"/>
+                        <DataGridTextColumn Header="Payment" Binding="{Binding PaymentMethod}" Width="110"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat='Rs. {0:N2}'}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Border>
+
+        <!-- Selected transaction details -->
+        <Border Grid.Column="2" Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <TextBlock Text="Transaction Details" Style="{StaticResource SectionHeader}"/>
+
+                <StackPanel x:Name="DetailsPanel" Visibility="Collapsed">
+                    <TextBlock x:Name="DetailTransactionNumber" FontWeight="Bold" FontSize="15" Margin="0,0,0,4"/>
+                    <TextBlock x:Name="DetailDateTime" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock x:Name="DetailPayment" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,12"/>
+
+                    <DataGrid x:Name="DetailItemsGrid" Height="240" Margin="0,0,0,12">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*"/>
+                            <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" Width="50"/>
+                            <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat='Rs. {0:N2}'}" Width="90"/>
+                            <DataGridTextColumn Header="Line Total" Binding="{Binding LineTotal, StringFormat='Rs. {0:N2}'}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid Margin="0,0,0,4">
+                        <TextBlock Text="Subtotal" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="DetailSubtotal" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Margin="0,0,0,4">
+                        <TextBlock x:Name="DetailDiscountLabel" Text="Discount" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="DetailDiscount" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Margin="0,0,0,4">
+                        <TextBlock x:Name="DetailTaxLabel" Text="Tax" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="DetailTax" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Separator Margin="0,4,0,8"/>
+                    <Grid>
+                        <TextBlock Text="TOTAL" FontWeight="Bold" FontSize="15" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="DetailTotal" FontWeight="Bold" FontSize="15" HorizontalAlignment="Right" Foreground="{StaticResource PrimaryBrush}"/>
+                    </Grid>
+                </StackPanel>
+
+                <TextBlock x:Name="NoSelectionText" Text="Select a transaction on the left to view its details." Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

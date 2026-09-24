@@ -1,0 +1,6 @@
+C:\Users\sasa\Desktop\Retail-Inventory-Sales\obj\Debug\net8.0-windows\App.baml
+C:\Users\sasa\Desktop\Retail-Inventory-Sales\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\sasa\Desktop\Retail-Inventory-Sales\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\sasa\Desktop\Retail-Inventory-Sales\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\sasa\Desktop\Retail-Inventory-Sales\obj\Debug\net8.0-windows\RetailInventorySales_MarkupCompile.cache
+C:\Users\sasa\Desktop\Retail-Inventory-Sales\obj\Debug\net8.0-windows\RetailInventorySales_MarkupCompile.lref

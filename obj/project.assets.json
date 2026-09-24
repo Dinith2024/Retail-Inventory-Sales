@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sasa\\Desktop\\Dinith_Sasanga_RetailAssignment\\RetailInventorySales.csproj",
+      "projectUniqueName": "C:\\Users\\sasa\\Desktop\\Retail-Inventory-Sales\\RetailInventorySales.csproj",
       "projectName": "RetailInventorySales",
-      "projectPath": "C:\\Users\\sasa\\Desktop\\Dinith_Sasanga_RetailAssignment\\RetailInventorySales.csproj",
+      "projectPath": "C:\\Users\\sasa\\Desktop\\Retail-Inventory-Sales\\RetailInventorySales.csproj",
       "packagesPath": "C:\\Users\\sasa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sasa\\Desktop\\Dinith_Sasanga_RetailAssignment\\obj\\",
+      "outputPath": "C:\\Users\\sasa\\Desktop\\Retail-Inventory-Sales\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sasa\\AppData\\Roaming\\NuGet\\NuGet.Config"
