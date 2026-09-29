@@ -1,5 +1,4 @@
 using System;
-
 namespace RetailInventorySales.Models
 {
     /// <summary>
