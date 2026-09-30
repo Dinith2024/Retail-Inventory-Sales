@@ -22,7 +22,6 @@ namespace RetailInventorySales.Data
         private readonly string _productsPath;
         private readonly string _movementsPath;
         private readonly string _salesPath;
-
         public ObservableCollection<Product> Products { get; }
         public ObservableCollection<StockMovement> StockMovements { get; }
         public ObservableCollection<SaleTransaction> Sales { get; }
