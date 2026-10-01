@@ -34,7 +34,6 @@ namespace RetailInventorySales.Data
                 {
                     return new List<T>();
                 }
-
                 var result = JsonSerializer.Deserialize<List<T>>(json, Options);
                 return result ?? new List<T>();
             }
