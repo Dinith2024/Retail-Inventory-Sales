@@ -12,6 +12,7 @@
         <SolidColorBrush x:Key="TextBrush" Color="#1E2622"/>
         <SolidColorBrush x:Key="MutedTextBrush" Color="#5B6864"/>
 
+
         <Style TargetType="Button" x:Key="PrimaryButton">
             <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
             <Setter Property="Foreground" Value="White"/>
